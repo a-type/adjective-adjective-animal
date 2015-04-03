@@ -1,0 +1,30 @@
+{
+  "bitwise"       : true,
+  "camelcase"     : true,
+  "curly"         : true,
+  "eqeqeq"        : true,
+  "es3"           : false,
+  "forin"         : false,
+  "immed"         : true,
+  "indent"        : 4,
+  "latedef"       : true,
+  "newcap"        : true,
+  "noarg"         : true,
+  "noempty"       : true,
+  "nonew"         : true,
+  "plusplus"      : true,
+  "quotmark"      : "double",
+  "undef"         : true,
+  "unused"        : true,
+  "strict"        : true,
+  "globalstrict"  : true,
+  "trailing"      : true,
+  "maxparams"     : 3,
+  "maxdepth"      : 3,
+  "maxstatements" : false,
+  "maxlen"        : 120,
+
+  "node"          : true,
+
+  "ignores"       : [ "node_modules/**/*.js" ]
+}

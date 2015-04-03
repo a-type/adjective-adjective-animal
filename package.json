@@ -1,0 +1,42 @@
+{
+  "name": "adjective-adjective-animal",
+  "version": "1.0.0",
+  "description": "Suitably random and reasonably unique human readable (and fairly adorable) ids",
+  "main": "./lib/index.js",
+  "scripts": {
+    "test": "grunt test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/a-type/adjective-adjective-animal.git"
+  },
+  "keywords": [
+    "random",
+    "id",
+    "animal",
+    "adjective",
+    "name"
+  ],
+  "author": "Grant Forrest",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/a-type/adjective-adjective-animal/issues"
+  },
+  "homepage": "https://github.com/a-type/adjective-adjective-animal",
+  "devDependencies": {
+    "chai": "^2.2.0",
+    "grunt": "^0.4.5",
+    "grunt-cli": "^0.1.13",
+    "grunt-contrib-clean": "^0.6.0",
+    "grunt-contrib-jshint": "^0.11.1",
+    "grunt-jscs": "^1.6.0",
+    "grunt-mocha-istanbul": "^2.3.1",
+    "istanbul": "^0.3.13",
+    "mocha": "^2.2.1",
+    "sinon": "^1.14.1"
+  },
+  "dependencies": {
+    "bluebird": "^2.9.24",
+    "lodash": "^3.6.0"
+  }
+}
