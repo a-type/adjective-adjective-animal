@@ -20,7 +20,6 @@ The function returns a `Promise` for the adjective-animal string. This is mainly
  // "unquiet-calm-omniscient-ornate-industrious-deer"
 
  ```
-
- # About
+# About
 
  There's nothing too special about this package&mdash;there are many like it&mdash;but I made this one because I thought it would be fun and I wanted mine to be cryptographically strong. Although the space is probably too small to guarantee any sort of uniqueness reliably, at least the randomness is not predictable. It uses node's core `crypto` library to choose each word.
