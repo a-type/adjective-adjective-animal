@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/a-type/adjective-adjective-animal.git"
+    "url": "https://github.com/ChrissiQ/adjective-adjective-animal.git"
   },
   "keywords": [
     "random",
@@ -17,12 +17,9 @@
     "adjective",
     "name"
   ],
-  "author": "Grant Forrest",
+  "author": "ChrissiQ",
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/a-type/adjective-adjective-animal/issues"
-  },
-  "homepage": "https://github.com/a-type/adjective-adjective-animal",
+  "homepage": "https://github.com/ChrissiQ/adjective-adjective-animal",
   "devDependencies": {
     "chai": "^2.2.0",
     "grunt": "^0.4.5",
@@ -35,6 +32,7 @@
     "mocha": "^2.2.1",
     "sinon": "^1.14.1"
   },
+  "private": true,
   "dependencies": {
     "bluebird": "^2.9.24",
     "lodash": "^3.6.0"
