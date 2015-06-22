@@ -8,13 +8,23 @@ The library export is a function. Call the function with the number of adjective
 
 The function returns a Promise for the adjective-animal string. This is mainly because generating cyrptographically strong random data is not guaranteed to be very quick.
 
- var generate = require("adjective-adjective-animal");
+``` javascript
+var generate = require("adjective-adjective-animal");
 
- generate().then(console.log);
- // "supercurious-senior-woodlouse"
+generate().then(console.log);
+// "supercurious-senior-woodlouse"
 
- generate(5).then(console.log);
- // "unquiet-calm-omniscient-ornate-industrious-deer"
+generate(5).then(console.log);
+// "unquiet-calm-omniscient-ornate-industrious-deer"
+
+// valid formats : upper (spaces), lower (spaces), sentence (spaces), title (spaces),
+// camel, pascal, snake, param, dot, path, constant, swap, ucFirst, lcFirst
+generate("pascal").then(console.log);
+// "OddPortentBullfrog"
+
+generate({ adjectives : 3, format : "dot"}).then(console.log);
+// "undead.energetic.mortified.albatross"
+```
 
 ## About
 There's nothing too special about this package—there are many like it—but I made this one because I thought it would be fun and I wanted mine to be cryptographically strong. Although the space is probably too small to guarantee any sort of uniqueness reliably, at least the randomness is not predictable. It uses node's core crypto library to choose each word.
