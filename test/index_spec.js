@@ -34,4 +34,49 @@ describe("the library", function () {
 			expect(result, "matches").to.match(/([a-z]+-){6}[a-z]+/);
 		});
 	});
+
+	describe("getting an id in snake_case", function () {
+		var result;
+
+		before(function () {
+			return adjAdjAnimal("snake")
+			.then(function (id) {
+				result = id;
+			});
+		});
+
+		it("generates a snake-cased id", function () {
+			expect(result, "matches").to.match(/[a-z]+_[a-z]+_[a-z]+/);
+		});
+	});
+
+	describe("getting an id with specified number of adjectives and case", function () {
+		var result;
+
+		before(function () {
+			return adjAdjAnimal({ adjectives : 4, format : "pascal" })
+			.then(function (id) {
+				result = id;
+			});
+		});
+
+		it("generates Adj{4}Animal", function () {
+			expect(result, "matches").to.match(/([A-Z][a-z]+){4}[A-Z][a-z]+/);
+		});
+	});
+
+	describe("getting an id with an empty object", function () {
+		var result;
+
+		before(function () {
+			return adjAdjAnimal({ foo : "bar" })
+			.then(function (id) {
+				result = id;
+			});
+		});
+
+		it("generates a default id", function () {
+			expect(result, "matches").to.match(/[a-z]+-[a-z]+-[a-z]+/);
+		});
+	});
 });
