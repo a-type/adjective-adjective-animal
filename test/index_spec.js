@@ -16,7 +16,7 @@ describe("the library", function () {
 		});
 
 		it("generates adj-adj-animal", function () {
-			expect(result, "matches").to.match(/[A-Z][a-z]+[A-Z][a-z]+[A-Z][a-z]+/);
+			expect(result, "matches").to.match(/[a-z]+-[a-z]+-[a-z]+/);
 		});
 	});
 
@@ -31,7 +31,7 @@ describe("the library", function () {
 		});
 
 		it("generates adj-{6}animal", function () {
-			expect(result, "matches").to.match(/([A-Z][a-z]+){6}[A-Z][a-z]+/);
+			expect(result, "matches").to.match(/([a-z]+-){6}[a-z]+/);
 		});
 	});
 });
