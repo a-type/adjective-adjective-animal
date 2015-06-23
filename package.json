@@ -6,6 +6,10 @@
   "scripts": {
     "test": "grunt test"
   },
+  "bin": {
+      "adjective-adjective-animal": "bin/run.js",
+      "aaa": "bin/run.js"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/a-type/adjective-adjective-animal.git"

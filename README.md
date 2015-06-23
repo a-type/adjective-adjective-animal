@@ -28,6 +28,16 @@ generate("pascal").then(console.log);
 generate({ adjectives : 3, format : "dot"}).then(console.log);
 // "undead.energetic.mortified.albatross"
 ```
+## Command Line Usage
+
+If you install the package globally (`npm install -g adjective-adjective-animal`), you can run the application from the command line by running `adjective-adjective-animal`. Because that's really annoying to type, you can also just run `aaa` for short.
+
+Optionally, the first argument can set the number of adjectives you want, and the second argument can set a different format.
+
+Example
+
+	$ adjective-adjective-animal 3 title
+	Decorated Despondent Insomniac Sunbear
 
 ## About
 There's nothing too special about this package—there are many like it—but I made this one because I thought it would be fun and I wanted mine to be cryptographically strong. Although the space is probably too small to guarantee any sort of uniqueness reliably, at least the randomness is not predictable. It uses node's core crypto library to choose each word.
