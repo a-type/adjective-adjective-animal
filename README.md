@@ -1,7 +1,7 @@
 # adjective-adjective-animal
 ### Suitably random and reasonably unique (and fairly adorable) human readable ids
 
-> Now with GfyCat lists!
+> Now with GfyCat animals!
 
 ## Usage
 The library export is a function. Call the function with the number of adjectives you want before the animal. Default is 2.
@@ -17,8 +17,11 @@ generate().then(console.log);
 generate(5).then(console.log);
 // "unquiet-calm-omniscient-ornate-industrious-deer"
 
-// valid formats : upper (spaces), lower (spaces), sentence (spaces), title (spaces),
-// camel, pascal, snake, param, dot, path, constant, swap, ucFirst, lcFirst
+// valid formats :
+//    formats with spaces between words:
+//        upper, lower, sentence, title,
+//    formats without spaces between words:
+//        camel, pascal, snake, param, dot, path, constant, swap, ucFirst, lcFirst
 generate("pascal").then(console.log);
 // "OddPortentBullfrog"
 
