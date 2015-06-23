@@ -79,4 +79,36 @@ describe("the library", function () {
 			expect(result, "matches").to.match(/[a-z]+-[a-z]+-[a-z]+/);
 		});
 	});
+
+	describe("getting an id with an invalid format", function () {
+		var result;
+
+		before(function () {
+			return adjAdjAnimal({ format : "isUppercase" })
+			.catch(function (err) {
+				result = err;
+			});
+		});
+
+		it("throws an error", function () {
+			expect(result, "error").to.be.an.instanceOf(Error);
+			expect(result.message, "message").to.match(/invalid format/i);
+		});
+	});
+
+	describe("getting an id with an invalid argument", function () {
+		var result;
+
+		before(function () {
+			return adjAdjAnimal(true)
+			.catch(function (err) {
+				result = err;
+			});
+		});
+
+		it("throws an error", function () {
+			expect(result, "error").to.be.an.instanceOf(Error);
+			expect(result.message, "message").to.match(/invalid argument/i);
+		});
+	});
 });
