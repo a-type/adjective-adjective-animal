@@ -50,6 +50,31 @@ module.exports = function (grunt) {
 			}
 		},
 
+		browserify : {
+			big : {
+				files : {
+					'dist/adjective-adjective-animal.js' : [ 'lib/index.js' ]
+				},
+				options : {
+					browserifyOptions : {
+						standalone : "adjAdjAnimal"
+					}
+				}
+			},
+
+			small : {
+				files : {
+					'dist/adjective-adjective-animal.min.js' : [ 'lib/index.js' ]
+				},
+				options : {
+					transform : [ 'uglifyify' ],
+					browserifyOptions : {
+						standalone : "adjAdjAnimal"
+					}
+				}
+			}
+		},
+
 		clean : [ "coverage" ]
 	});
 
@@ -58,6 +83,7 @@ module.exports = function (grunt) {
 	grunt.loadNpmTasks("grunt-contrib-jshint");
 	grunt.loadNpmTasks("grunt-jscs");
 	grunt.loadNpmTasks("grunt-mocha-istanbul");
+	grunt.loadNpmTasks("grunt-browserify");
 
 	// Rename tasks
 	grunt.task.renameTask("mocha_istanbul", "mochaIstanbul");
@@ -66,5 +92,6 @@ module.exports = function (grunt) {
 	grunt.registerTask("test", [ "clean", "mochaIstanbul:coverage" ]);
 	grunt.registerTask("lint", "Check for common code problems.", [ "jshint" ]);
 	grunt.registerTask("style", "Check for style conformity.", [ "jscs" ]);
+	grunt.registerTask("build", "Build for Bower", [ "browserify:big", "browserify:small" ]);
 	grunt.registerTask("default", [ "clean", "lint", "style", "test" ]);
 };

@@ -2,9 +2,8 @@
 
 var Crypto = require("crypto");
 var CryptoRand = require("../lib/cryptoRand");
-var loadLists  = require("../lib/loadLists");
+var lists  = require("../lib/lists");
 var Sinon = require("sinon");
-var lists = loadLists();
 
 var expect = require("chai").expect;
 

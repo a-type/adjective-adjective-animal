@@ -39,6 +39,10 @@ Example
 	$ adjective-adjective-animal 3 title
 	Decorated Despondent Insomniac Sunbear
 
+## Browserified Usage
+
+`adjective-adjective-animal` is available from Bower, and exports a global function `adjAdjAnimal`, which is used in the same manner as in NodeJS shown above.
+
 ## About
 There's nothing too special about this package—there are many like it—but I made this one because I thought it would be fun and I wanted mine to be cryptographically strong. Although the space is probably too small to guarantee any sort of uniqueness reliably, at least the randomness is not predictable. It uses node's core crypto library to choose each word.
 

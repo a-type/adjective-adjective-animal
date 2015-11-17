@@ -1,0 +1,26 @@
+<html>
+	<body>
+		<div id="output"></div>
+		<script src="../dist/adjective-adjective-animal.js" type="text/javascript"></script>
+		<script>
+			var result = "";
+			var output = document.getElementById("output");
+
+			try {
+				adjAdjAnimal()
+				.then(function (output) {
+					result += "Generated: " + output;
+				})
+				.catch(function (error) {
+					result += "Failed!\n" + error.stack;
+				})
+				.then(function () {
+					output.innerText = result;
+				});
+			}
+			catch (error) {
+				output.innerText = "Failed!\n" + error.stack;
+			}
+		</script>
+	</body>
+</html>
