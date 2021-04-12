@@ -4,7 +4,10 @@
   "description": "Suitably random and reasonably unique human readable (and fairly adorable) ids",
   "main": "./lib/index.js",
   "scripts": {
-    "test": "grunt test"
+    "test": "grunt test",
+    "lint": "grunt lint",
+    "style": "grunt style",
+    "build": "grunt build"
   },
   "bin": {
     "adjective-adjective-animal": "bin/run.js",
