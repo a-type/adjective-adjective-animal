@@ -1,6 +1,6 @@
 {
   "name": "adjective-adjective-animal",
-  "version": "1.4.0",
+  "version": "1.5.0",
   "description": "Suitably random and reasonably unique human readable (and fairly adorable) ids",
   "main": "./lib/index.js",
   "scripts": {
