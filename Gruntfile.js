@@ -1,97 +1,71 @@
-"use strict";
+'use strict';
 
 module.exports = function (grunt) {
+  var _ = grunt.util._;
 
-	var _ = grunt.util._;
+  var sourceFiles = ['*.js', 'lib/**/*.js'];
+  var testFiles = ['test/**/*.js'];
+  var jsFiles = sourceFiles.concat(testFiles);
 
-	var sourceFiles = [ "*.js", "lib/**/*.js" ];
-	var testFiles   = [ "test/**/*.js" ];
-	var jsFiles     = sourceFiles.concat(testFiles);
+  grunt.initConfig({
+    mochaIstanbul: {
+      coverage: {
+        src: 'test',
+        options: {
+          check: {
+            statements: 100,
+            branches: 100,
+            lines: 100,
+            functions: 100,
+          },
 
-	var defaultJsHintOptions = grunt.file.readJSON("./.jshint.json");
-	var testJsHintOptions = _.defaults(
-		grunt.file.readJSON("./test/.jshint.json"),
-		defaultJsHintOptions
-	);
+          mask: '**/*_spec.js',
+          recursive: true,
+        },
+      },
+    },
 
-	grunt.initConfig({
-		jscs : {
-			src     : jsFiles,
-			options : {
-				config : ".jscsrc"
-			}
-		},
+    browserify: {
+      big: {
+        files: {
+          'dist/adjective-adjective-animal.js': ['lib/index.js'],
+        },
+        options: {
+          browserifyOptions: {
+            standalone: 'adjAdjAnimal',
+          },
+        },
+      },
 
-		jshint : {
-			src     : sourceFiles,
-			options : defaultJsHintOptions,
-			test    : {
-				options : testJsHintOptions,
-				files   : {
-					test : testFiles
-				}
-			}
-		},
+      small: {
+        files: {
+          'dist/adjective-adjective-animal.min.js': ['lib/index.js'],
+        },
+        options: {
+          transform: ['uglifyify'],
+          browserifyOptions: {
+            standalone: 'adjAdjAnimal',
+          },
+        },
+      },
+    },
 
-		mochaIstanbul : {
-			coverage : {
-				src     : "test",
-				options : {
-					check : {
-						statements : 100,
-						branches   : 100,
-						lines      : 100,
-						functions  : 100
-					},
+    clean: ['coverage'],
+  });
 
-					mask      : "**/*_spec.js",
-					recursive : true
-				}
-			}
-		},
+  // Load plugins
+  grunt.loadNpmTasks('grunt-contrib-clean');
+  grunt.loadNpmTasks('grunt-mocha-istanbul');
+  grunt.loadNpmTasks('grunt-browserify');
 
-		browserify : {
-			big : {
-				files : {
-					'dist/adjective-adjective-animal.js' : [ 'lib/index.js' ]
-				},
-				options : {
-					browserifyOptions : {
-						standalone : "adjAdjAnimal"
-					}
-				}
-			},
+  // Rename tasks
+  grunt.task.renameTask('mocha_istanbul', 'mochaIstanbul');
 
-			small : {
-				files : {
-					'dist/adjective-adjective-animal.min.js' : [ 'lib/index.js' ]
-				},
-				options : {
-					transform : [ 'uglifyify' ],
-					browserifyOptions : {
-						standalone : "adjAdjAnimal"
-					}
-				}
-			}
-		},
-
-		clean : [ "coverage" ]
-	});
-
-	// Load plugins
-	grunt.loadNpmTasks("grunt-contrib-clean");
-	grunt.loadNpmTasks("grunt-contrib-jshint");
-	grunt.loadNpmTasks("grunt-jscs");
-	grunt.loadNpmTasks("grunt-mocha-istanbul");
-	grunt.loadNpmTasks("grunt-browserify");
-
-	// Rename tasks
-	grunt.task.renameTask("mocha_istanbul", "mochaIstanbul");
-
-	// Register tasks
-	grunt.registerTask("test", [ "clean", "mochaIstanbul:coverage" ]);
-	grunt.registerTask("lint", "Check for common code problems.", [ "jshint" ]);
-	grunt.registerTask("style", "Check for style conformity.", [ "jscs" ]);
-	grunt.registerTask("build", "Build for Bower", [ "browserify:big", "browserify:small" ]);
-	grunt.registerTask("default", [ "clean", "lint", "style", "test" ]);
+  // Register tasks
+  grunt.registerTask('test', ['clean', 'mochaIstanbul:coverage']);
+  grunt.registerTask('build', 'Build for Bower', [
+    'browserify:big',
+    'browserify:small',
+  ]);
+  grunt.registerTask('default', ['test']);
 };
