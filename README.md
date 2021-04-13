@@ -2,7 +2,9 @@
 
 ### Suitably random and reasonably unique (and fairly adorable) human readable ids
 
-> Now with GfyCat animals!
+## A note about NPM
+
+Since it seems I published this under a very old NPM account I lost access to, distributing the latest (`1.5`) version has been tricky. [@nwlongnecker](https://github.com/nwlongnecker) has been kind enough to publish a mirrored copy at [`@nwlongnecker/adjective-adjective-animal`](https://www.npmjs.com/package/@nwlongnecker/adjective-adjective-animal). I recommend using that until I can figure out the publishing situation. `1.5` contains a at least 5 years of lapsed security vulnerability fixes (sorry) and removes a dependency on Bluebird for native Promises (it's been that long since I worked on this...)
 
 ## Usage
 
