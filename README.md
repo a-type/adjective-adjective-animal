@@ -1,5 +1,7 @@
 # adjective-adjective-animal
 
+# DEPRECATED: You might be interested in https://github.com/andreasonny83/unique-names-generator
+
 ### Suitably random and reasonably unique (and fairly adorable) human readable ids
 
 ## A note about NPM
